@@ -1,4 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
+
+  #SAM from restful_authentication postinstall notes
+  map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
+  map.resources :users, :member => { :suspend => :put, :unsuspend => :put, :purge => :delete }
+  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
