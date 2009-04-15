@@ -8,3 +8,16 @@ require 'rake/testtask'
 require 'rake/rdoctask'
 
 require 'tasks/rails'
+
+task :setup do
+  system 'script/generate authenticated user sessions'
+end
+
+task :testra => [ "db:drop", "db:create", "db:migrate", "db:test:prepare" ] do
+  system 'rake test'
+end
+
+task :reset do
+  system 'git add .'
+  system 'git reset --hard'
+end
