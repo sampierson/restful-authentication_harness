@@ -10,7 +10,7 @@ require 'rake/rdoctask'
 require 'tasks/rails'
 
 task :setup do
-  system 'script/generate authenticated user sessions --rspec --haml'
+  system 'script/generate authenticated user sessions --rspec --haml --email-only'
 end
 
 task :testra => [ "db:drop", "db:create", "db:migrate", "db:test:prepare" ] do
