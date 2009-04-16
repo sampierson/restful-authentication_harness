@@ -10,7 +10,7 @@ require 'rake/rdoctask'
 require 'tasks/rails'
 
 task :setup do
-  system 'script/generate authenticated user sessions --aasm --haml'
+  system 'script/generate authenticated user sessions --aasm --haml --email-only'
   # enable line: config.active_record.observers = :user_observer
   system 'echo -e "g/#SAM /s///\n w\n" | ed config/environment.rb'
   # remove line: map.resources :users   (we already have a better one in there)
