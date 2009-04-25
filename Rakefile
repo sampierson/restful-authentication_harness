@@ -13,9 +13,7 @@ task :setup do
   system 'script/generate authenticated user sessions --rspec --email-only'
 end
 
-task :testra => [ "db:drop", "db:create", "db:migrate", "db:test:prepare" ] do
-  system 'rake spec features'
-end
+task :testra => [ "db:drop", "db:create", "db:migrate", "db:test:prepare", :spec, :features ]
 
 task :reset do
   system 'git add .'
