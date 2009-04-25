@@ -17,9 +17,7 @@ task :setup do
   system 'echo -e "/map\.resources :users$/d\n w\n" | ed config/routes.rb'
 end
 
-task :testra => [ "db:drop", "db:create", "db:migrate", "db:test:prepare" ] do
-  system 'rake spec features'
-end
+task :testra => [ "db:drop", "db:create", "db:migrate", "db:test:prepare", :spec, :features ]
 
 task :reset do
   system 'git add .'
