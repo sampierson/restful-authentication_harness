@@ -13,9 +13,7 @@ task :setup do
   system 'script/generate authenticated user sessions --haml'
 end
 
-task :testra => [ "db:drop", "db:create", "db:migrate", "db:test:prepare" ] do
-  system 'rake test'
-end
+task :testra => [ "db:drop", "db:create", "db:migrate", "db:test:prepare", :test ]
 
 task :reset do
   system 'git add .'
