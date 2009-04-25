@@ -13,7 +13,7 @@ for test_framework in rspec testunit ; do
         echo "########## $branch ####################################################"
         git co $branch
         rake setup > /dev/null 2>&1
-        rake testra !! exit 1
+        rake testra || exit 1
         rake reset > /dev/null 2>&1
       done
     done
